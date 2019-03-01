@@ -94,6 +94,8 @@ int proj4_convert_WGS84_6zone_coordinate(double x, double y, double& X, double& 
     std::cout.precision(12);
     X = x - 20000000;
     Y = y;
+    pj_free(pj_merc);
+    pj_free(pj_latlong);
     return 0;
 
 }
@@ -111,6 +113,8 @@ int proj4_convert_WGS84_3zone_coordinate(double x, double y, double& X, double& 
     std::cout.precision(12);
     X = x - 39000000;
     Y = y;
+    pj_free(pj_merc);
+    pj_free(pj_latlong);
     return 0;
 }
 
@@ -128,7 +132,8 @@ int proj4_convert_6zoneGauss2WGS84(double& X, double& Y)
     Y = Y / DEG_TO_RAD;
 
     cout<<setiosflags(ios::fixed)<<setprecision(8)<<X<<", "<<Y<<endl;
-
+    pj_free(pj_merc);
+    pj_free(pj_latlong);
     return 0;
 }
 
@@ -147,7 +152,8 @@ int proj4_convert_3zoneGauss2WGS84(double& X, double& Y)
     Y = Y / DEG_TO_RAD;
 
     cout<<setiosflags(ios::fixed)<<setprecision(8)<<X<<", "<<Y<<endl;
-
+    pj_free(pj_merc);
+    pj_free(pj_latlong);
     return 0;
 
 }
